@@ -1,3 +1,4 @@
+
 /* Variables */
 :root {
   --color-dark: #fff;         
@@ -29,9 +30,14 @@ body {
 .container {
   max-width: 1100px;
   margin: 0 auto;
-  padding: 2rem;
+  padding: 30px;
 }
 
+section {
+  margin: 50px auto; /* espace cohérent entre sections */
+}
+
+/* Titres */
 h1, h2, h3 {
   font-family: var(--font-heading);
   font-weight: 700;
@@ -39,16 +45,18 @@ h1, h2, h3 {
   line-height: 1.2;
 }
 
-h1 { font-size: 3rem; margin-bottom: 1rem; }
+h1 { font-size: 48px; margin-bottom: 20px; }
 h2 { 
-  font-size: 2.2rem; 
-  margin: 3rem 0 1rem; 
+  font-size: 32px; 
+  margin: 50px 0 20px; 
   border-bottom: 2px solid var(--color-accent); 
-  padding-bottom: 0.5rem; 
+  padding-bottom: 10px; 
 }
+h3 { font-size: 24px; margin-bottom: 15px; }
 
-p { margin-bottom: 1.5rem; }
+p { margin-bottom: 20px; }
 
+/* Liens */
 a {
   color: var(--color-light);
   text-decoration: none;
@@ -62,7 +70,7 @@ a:hover {
 
 /* Header / Navbar */
 .header {
-  padding: 1.5rem 2rem;
+  padding: 20px 30px;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -74,9 +82,9 @@ a:hover {
 }
 
 .nav a {
-  margin-left: 2rem;
+  margin-left: 25px;
   text-transform: uppercase;
-  letter-spacing: 1.5px;
+  letter-spacing: 1px;
   font-size: 16px;
   font-weight: 500;
   color: var(--color-light);
@@ -86,15 +94,15 @@ a:hover {
 
 .logo {
   font-family: var(--font-heading);
-  font-size: 1.8rem;
+  font-size: 28px;
   font-weight: 700;
-  color: var(--color-light); /* logo reste sobre */
+  color: var(--color-light);
 }
 
 /* Footer */
 .footer {
   text-align: center;
-  padding: 2rem;
+  padding: 30px;
   margin-top: auto;
   background-color: var(--color-bg-dark);
   color: var(--color-light);
@@ -107,16 +115,15 @@ a:hover {
   color: var(--color-accent);
 }
 .social-links a {
-  font-size: 1rem;
-  margin: 0 0.8rem;
+  font-size: 14px;
+  margin: 0 10px;
 }
 
 /* Hero section */
 .hero {
   position: relative;
   text-align: center;
-  padding: 3rem 2rem;
-  margin: 3rem auto;
+  margin: 120px auto;
   max-width: 800px;
   border-radius: 20px;
   background-color: rgba(34,34,34,0.7);
@@ -131,13 +138,13 @@ a:hover {
 .grid-container {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 2rem;
+  gap: 30px;
 }
 
 /* Cards */
 .card {
   background-color: rgba(255,255,255,0.95);
-  border: 1px solid var(--color-accent); /* vert discret */
+  border: 1px solid var(--color-accent);
   border-radius: 12px;
   overflow: hidden;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
@@ -154,25 +161,25 @@ a:hover {
   object-fit: cover;
   display: block;
 }
-.card-content { padding: 1.5rem; }
+.card-content { padding: 20px; }
 .card-content h4 {
   margin-top: 0;
-  font-size: 1.2rem;
+  font-size: 18px;
   font-family: var(--font-heading);
-  color: var(--color-accent); /* titres en vert */
+  color: var(--color-accent);
 }
 
 /* Galerie avant/après */
-.before-after { display: flex; flex-direction: column; gap: 1rem; }
+.before-after { display: flex; flex-direction: column; gap: 15px; }
 .before-after img { width: 100%; border-radius: 6px; }
 
 /* Formulaire de contact */
 .contact-form { max-width: 650px; margin: 0 auto; }
-.form-field { margin-bottom: 1.5rem; }
-.form-field label { display: block; font-weight: 500; margin-bottom: 0.5rem; }
+.form-field { margin-bottom: 20px; }
+.form-field label { display: block; font-weight: 500; margin-bottom: 8px; }
 .form-field input, .form-field textarea {
   width: 100%;
-  padding: 0.8rem;
+  padding: 12px;
   border: 1px solid #ddd;
   border-radius: 4px;
   font-family: var(--font-body);
@@ -184,12 +191,12 @@ a:hover {
 }
 .submit-btn {
   display: inline-block;
-  padding: 1rem 2.5rem;
-  background-color: #222;   /* bouton sombre */
+  padding: 12px 30px;
+  background-color: #222;
   color: var(--color-light);
   border: none;
   border-radius: 50px;
-  font-size: 1rem;
+  font-size: 14px;
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 1px;
@@ -202,19 +209,19 @@ a:hover {
 .testimonials {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 2rem;
-  margin-top: 2rem;
+  gap: 30px;
+  margin-top: 30px;
 }
 .testimonial {
   background-color: rgba(255,255,255,0.95);
-  border-left: 4px solid var(--color-accent); /* barre verte discrète */
+  border-left: 4px solid var(--color-accent);
   border-radius: 8px;
-  padding: 1.5rem;
+  padding: 20px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
   transition: transform 0.3s ease;
   color: #222;
 }
 .testimonial:hover { transform: translateY(-5px); }
-.stars { font-size: 1.2rem; color: var(--color-accent); margin-bottom: 0.5rem; }
-.quote { font-style: italic; margin-bottom: 1rem; }
+.stars { font-size: 16px; color: var(--color-accent); margin-bottom: 10px; }
+.quote { font-style: italic; margin-bottom: 15px; }
 .author { font-weight: 500; color: #222; text-align: right; }
