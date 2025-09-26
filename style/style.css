@@ -3,7 +3,7 @@
 :root {
   --color-dark: #fff;         
   --color-light: #FAEDCD;     
-  --color-accent: #8C9C7C;    /* vert discret */
+  --color-accent: #8C9C7C;
   --color-bg-dark: #222;      
   --font-body: 'Poppins', sans-serif;
   --font-heading: 'Lora', serif;
@@ -58,7 +58,7 @@ p { margin-bottom: 20px; }
 
 /* Liens */
 a {
-  color: var(--color-light);
+  color: var(--color-accent);
   text-decoration: none;
   border-bottom: 1px solid var(--color-accent);
   transition: all 0.3s ease;
@@ -70,7 +70,7 @@ a:hover {
 
 /* Header / Navbar */
 .header {
-  padding: 20px 30px;
+  padding: 20px 50px;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -82,21 +82,22 @@ a:hover {
 }
 
 .nav a {
-  margin-left: 25px;
+  margin: 16px;
   text-transform: uppercase;
   letter-spacing: 1px;
   font-size: 16px;
   font-weight: 500;
-  color: var(--color-light);
+  color: var(--color-accent);
   border-bottom: none;
 }
-.nav a:hover { color: var(--color-accent); }
+.nav a:hover { color: var(--color-light); }
 
 .logo {
   font-family: var(--font-heading);
-  font-size: 28px;
+  font-size: 40px;
   font-weight: 700;
-  color: var(--color-light);
+  color: var(--color-accent);
+;
 }
 
 /* Footer */
