@@ -1,17 +1,15 @@
 /*
  * Nouvelle palette de couleurs :
- * #2C3E50 - Bleu-gris foncé (texte, fond des boutons)
- * #F4F6F4 - Blanc cassé (fond des pages)
- * #E9C46A - Jaune ocre (accents, liens)
- * #C8AE7D - Taupe clair (bordures, séparateurs)
+ * #8C9C7C - Vert (footer et accents)
+ * #FAEDCD - Jaune clair (fond des pages)
  */
 
 /* Règle de base */
 :root {
-  --color-dark: #2C3E50;
-  --color-light: #F4F6F4;
-  --color-accent: #E9C46A;
-  --color-border: #C8AE7D;
+  --color-dark: #000;
+  --color-light: #2c7373; /* fond des pages */
+  --color-accent: #8C9C7C; /* accents et hover */
+  --color-border: #8C9C7C; /* footer et bordures */
   --font-body: 'Poppins', sans-serif;
   --font-heading: 'Lora', serif;
 }
@@ -23,14 +21,22 @@
 body {
   font-family: var(--font-body);
   color: var(--color-dark);
-  background-color: var(--color-light);
+  background-image: url('menu-photo-2.jpg'); /* ton image */
+  background-size: cover;       /* l’image couvre tout */
+  background-position: center;  /* l’image est centrée */
+  background-repeat: no-repeat; /* pas de répétition */
+  background-attachment: fixed; /* option : effet "parallaxe" */
+  
   line-height: 1.7;
   margin: 0;
   padding: 0;
   display: flex;
   flex-direction: column;
+  
   min-height: 100vh;
 }
+
+
 
 .container {
   max-width: 1100px;
@@ -54,7 +60,7 @@ h2 {
   font-size: 2.2rem;
   margin-top: 3rem;
   margin-bottom: 1rem;
-  border-bottom: 2px solid var(--color-border);
+  border-bottom: 2px solid var(--color-border); /* vert */
   padding-bottom: 0.5rem;
 }
 
@@ -65,18 +71,19 @@ p {
 a {
   color: var(--color-dark);
   text-decoration: none;
-  border-bottom: 1px solid var(--color-accent);
+  border-bottom: 1px solid var(--color-accent); /* vert */
   transition: all 0.3s ease;
 }
 
 a:hover {
-  color: var(--color-accent);
+  color: var(--color-accent); /* vert */
   border-bottom-color: transparent;
 }
 
 /* En-tête */
 .header {
   padding: 1.5rem 2rem;
+  padding-bottom: 6rem; /* ajoute de l'espace sous le menu */
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -89,13 +96,39 @@ a:hover {
   border-bottom: none;
 }
 
+/* Bloc derrière logo et nav */
+.header {
+  padding: 1.5rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  
+  /* arrière-plan flou */
+  background-color: rgba(255, 255, 255, 0.3); /* semi-transparent */
+  backdrop-filter: blur(10px); /* flou derrière */
+  -webkit-backdrop-filter: blur(10px); /* support Safari */
+  
+  position: relative;
+  z-index: 10;
+}
+
+/* Ajustement pour les liens */
 .nav a {
   margin-left: 2rem;
   text-transform: uppercase;
   letter-spacing: 1.5px;
-  font-size: 0.9rem;
+  font-size: 18px;
   font-weight: 500;
+  color: var(--color-dark);
   border-bottom: none;
+}
+
+/* Logo */
+.logo {
+  font-family: var(--font-heading);
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: var(--color-dark);
 }
 
 /* Pied de page */
@@ -103,7 +136,7 @@ a:hover {
   text-align: center;
   padding: 2rem;
   margin-top: auto;
-  background-color: var(--color-border);
+  background-color: var(--color-border); /* vert */
   color: var(--color-dark);
 }
 
@@ -121,22 +154,29 @@ a:hover {
 
 /* Page d'accueil */
 .hero {
+  position: relative;
   text-align: center;
-  padding: 5rem 2rem;
-  background-color: #F8F9F8;
-}
-
-.hero h1 {
-  font-size: 4.5rem;
-  font-weight: 400;
+  padding: 2rem 2rem;
+  margin: 3rem auto;           /* centrage horizontal + espace au-dessus */
+  max-width: 800px;            /* largeur maximale du bloc */
+  margin-top: 3rem;           /* espace par rapport à la navbar */
+  border-radius: 20px;         /* arrondi comme la navbar */
+  
+  /* Arrière-plan flouté */
+  background-color: rgba(255, 255, 255, 0.3); /* semi-transparent */
+  backdrop-filter: blur(10px);                /* flou comme la navbar */
+  -webkit-backdrop-filter: blur(10px);        /* support Safari */
+  
   color: var(--color-dark);
+  overflow: hidden;           /* masque les débordements du flou */
+  z-index: 1;
 }
 
+/* Texte du slogan au-dessus du flou */
+.hero h1,
 .hero p {
-  font-size: 1.2rem;
-  font-style: italic;
-  color: #555;
-  margin-top: -0.5rem;
+  position: relative;
+  z-index: 2;
 }
 
 /* Collections et Galerie */
@@ -220,13 +260,13 @@ a:hover {
 
 .form-field input:focus, .form-field textarea:focus {
   outline: none;
-  border-color: var(--color-accent);
+  border-color: var(--color-accent); /* vert */
 }
 
 .submit-btn {
   display: inline-block;
   padding: 1rem 2.5rem;
-  background-color: var(--color-dark);
+  background-color: var(--color-dark); /* bouton reste foncé */
   color: var(--color-light);
   border: none;
   border-radius: 50px;
@@ -239,5 +279,43 @@ a:hover {
 }
 
 .submit-btn:hover {
-  background-color: #4A5B6C;
+  background-color: #4A5B6C; /* foncé au hover */
+}
+
+/* Témoignages */
+.testimonials {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.testimonial {
+  background-color: #fff;
+  border: 1px solid var(--color-border);
+  border-radius: 8px;
+  padding: 1.5rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  transition: transform 0.3s ease;
+}
+
+.testimonial:hover {
+  transform: translateY(-5px);
+}
+
+.stars {
+  font-size: 1.2rem;
+  color: var(--color-accent); /* vert */
+  margin-bottom: 0.5rem;
+}
+
+.quote {
+  font-style: italic;
+  margin-bottom: 1rem;
+}
+
+.author {
+  font-weight: 500;
+  color: var(--color-dark);
+  text-align: right;
 }
