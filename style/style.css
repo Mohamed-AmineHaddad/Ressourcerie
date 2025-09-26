@@ -1,26 +1,30 @@
 /*
- * Palette de couleurs :
- * #2E403E - Vert foncé (texte)
- * #D4D8CA - Beige clair (fond)
- * #A0AC9F - Gris-vert (accents)
- * #748A7A - Vert moyen (liens)
+ * Nouvelle palette de couleurs :
+ * #2C3E50 - Bleu-gris foncé (texte, fond des boutons)
+ * #F4F6F4 - Blanc cassé (fond des pages)
+ * #E9C46A - Jaune ocre (accents, liens)
+ * #C8AE7D - Taupe clair (bordures, séparateurs)
  */
 
 /* Règle de base */
 :root {
-  --color-dark: #2e403e;
-  --color-light: #d4d8ca;
-  --color-accent: #a0ac9f;
-  --color-link: #748a7a;
-  --font-family: 'Helvetica Neue', Arial, sans-serif;
+  --color-dark: #2C3E50;
+  --color-light: #F4F6F4;
+  --color-accent: #E9C46A;
+  --color-border: #C8AE7D;
+  --font-body: 'Poppins', sans-serif;
+  --font-heading: 'Lora', serif;
 }
+
+/* Importation de polices Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500&family=Lora:wght@400;700&display=swap');
 
 /* Général */
 body {
-  font-family: var(--font-family);
+  font-family: var(--font-body);
   color: var(--color-dark);
   background-color: var(--color-light);
-  line-height: 1.6;
+  line-height: 1.7;
   margin: 0;
   padding: 0;
   display: flex;
@@ -29,39 +33,45 @@ body {
 }
 
 .container {
-  max-width: 1200px;
+  max-width: 1100px;
   margin: 0 auto;
   padding: 2rem;
 }
 
 h1, h2, h3 {
-  font-weight: normal;
+  font-family: var(--font-heading);
+  font-weight: 700;
+  color: var(--color-dark);
   line-height: 1.2;
 }
 
 h1 {
   font-size: 3rem;
-  margin-bottom: 0.5rem;
+  margin-bottom: 1rem;
 }
 
 h2 {
-  font-size: 2rem;
-  margin-top: 2rem;
+  font-size: 2.2rem;
+  margin-top: 3rem;
   margin-bottom: 1rem;
+  border-bottom: 2px solid var(--color-border);
+  padding-bottom: 0.5rem;
 }
 
 p {
-  margin-bottom: 1rem;
+  margin-bottom: 1.5rem;
 }
 
 a {
-  color: var(--color-link);
+  color: var(--color-dark);
   text-decoration: none;
-  transition: color 0.3s ease;
+  border-bottom: 1px solid var(--color-accent);
+  transition: all 0.3s ease;
 }
 
 a:hover {
-  color: var(--color-dark);
+  color: var(--color-accent);
+  border-bottom-color: transparent;
 }
 
 /* En-tête */
@@ -70,32 +80,41 @@ a:hover {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  border-bottom: 1px solid var(--color-accent);
 }
 
-.logo {
-  font-size: 1.5rem;
-  font-weight: bold;
+.logo a {
+  font-family: var(--font-heading);
+  font-size: 1.8rem;
+  font-weight: 700;
+  border-bottom: none;
 }
 
 .nav a {
-  margin-left: 1.5rem;
+  margin-left: 2rem;
   text-transform: uppercase;
-  letter-spacing: 1px;
+  letter-spacing: 1.5px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  border-bottom: none;
 }
 
 /* Pied de page */
 .footer {
   text-align: center;
   padding: 2rem;
-  margin-top: auto; /* Pousse le footer en bas */
-  border-top: 1px solid var(--color-accent);
+  margin-top: auto;
+  background-color: var(--color-border);
+  color: var(--color-dark);
+}
+
+.footer a {
+  color: var(--color-dark);
+  border-bottom: 1px solid var(--color-dark);
 }
 
 .social-links a {
-  display: inline-block;
-  margin: 0 0.5rem;
-  font-size: 1.2rem;
+  font-size: 1rem;
+  margin: 0 0.8rem;
 }
 
 /* Sections spécifiques */
@@ -104,85 +123,121 @@ a:hover {
 .hero {
   text-align: center;
   padding: 5rem 2rem;
+  background-color: #F8F9F8;
 }
 
 .hero h1 {
-  font-size: 4rem;
+  font-size: 4.5rem;
+  font-weight: 400;
+  color: var(--color-dark);
 }
 
-/* Collections */
-.category-list {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 1.5rem;
+.hero p {
+  font-size: 1.2rem;
+  font-style: italic;
+  color: #555;
+  margin-top: -0.5rem;
 }
 
-.category-item {
-  flex: 1 1 250px;
-  background-color: #e2e7d7;
-  padding: 1.5rem;
-  text-align: center;
-  border-radius: 8px;
-}
-
-.category-item img {
-  max-width: 100%;
-  height: auto;
-  border-radius: 4px;
-}
-
-/* Galerie */
-.gallery {
+/* Collections et Galerie */
+.grid-container {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 1.5rem;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
 }
 
-.gallery-item img {
+.card {
+  background-color: #fff;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  transition: transform 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+}
+
+.card-img {
   width: 100%;
-  height: auto;
+  height: 250px;
+  object-fit: cover;
+  display: block;
+}
+
+.card-content {
+  padding: 1.5rem;
+}
+
+.card-content h4 {
+  margin-top: 0;
+  font-size: 1.2rem;
+  font-family: var(--font-heading);
+}
+
+.card-content p {
+  margin-bottom: 0.5rem;
+}
+
+/* Galerie avant/après */
+.before-after {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.before-after img {
+  width: 100%;
   border-radius: 4px;
 }
 
 /* Formulaire de contact */
 .contact-form {
-  display: grid;
-  gap: 1rem;
-  max-width: 600px;
+  max-width: 650px;
   margin: 0 auto;
 }
 
 .form-field {
-  display: flex;
-  flex-direction: column;
+  margin-bottom: 1.5rem;
 }
 
 .form-field label {
+  display: block;
+  font-weight: 500;
   margin-bottom: 0.5rem;
 }
 
 .form-field input, .form-field textarea {
+  width: 100%;
   padding: 0.8rem;
-  border: 1px solid var(--color-accent);
+  border: 1px solid #ddd;
   border-radius: 4px;
-  font-family: var(--font-family);
-  background-color: var(--color-light);
+  font-family: var(--font-body);
+  background-color: #fff;
+  transition: border-color 0.3s ease;
+}
+
+.form-field input:focus, .form-field textarea:focus {
+  outline: none;
+  border-color: var(--color-accent);
 }
 
 .submit-btn {
-  padding: 1rem 2rem;
+  display: inline-block;
+  padding: 1rem 2.5rem;
   background-color: var(--color-dark);
-  color: #fff;
+  color: var(--color-light);
   border: none;
-  cursor: pointer;
-  border-radius: 4px;
+  border-radius: 50px;
   font-size: 1rem;
+  font-weight: 500;
   text-transform: uppercase;
   letter-spacing: 1px;
+  cursor: pointer;
   transition: background-color 0.3s ease;
 }
 
 .submit-btn:hover {
-  background-color: var(--color-link);
+  background-color: #4A5B6C;
 }
