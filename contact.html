@@ -9,7 +9,7 @@
 <body>
     <header class="header">
         <div class="logo">Veralia</div>
-        <nav class="nav">
+        <nav class="nav" aria-label="Navigation principale">
             <a href="index.html">Accueil</a>
             <a href="apropos.html">À propos</a>
             <a href="collections.html">Collections</a>
@@ -18,7 +18,7 @@
         </nav>
     </header>
 
-    <main>
+    <main role="main">
         <section class="container">
             <h2>Contactez-nous</h2>
             <form class="contact-form" action="mailto:votreadresse@email.com" method="post" enctype="text/plain">
@@ -46,11 +46,13 @@
             <ul>
                 <li>[Jour] : [Heure]</li>
                 <li>[Jour] : [Heure]</li>
-                <li>[... et ainsi de suite]</li>
+                <li>[...]</li>
             </ul>
 
             <div style="margin-top: 2rem;">
+                <!-- Écoconception: Ajout de loading="lazy" sur l'iframe pour un chargement différé de la carte -->
                 <iframe 
+                    title="Localisation du Showroom Veralia"
                     src="https://www.google.com/intl/fr-CA/maps/about/mymaps/" 
                     width="100%" 
                     height="450" 
@@ -72,11 +74,11 @@
         </section>
     </main>
 
-    <footer class="footer">
+    <footer class="footer" role="contentinfo">
         <p>&copy; 2025 Nom de la Ressourcerie. Tous droits réservés.</p>
         <div class="social-links">
-            <a href="https://instagram.com" target="_blank">Instagram</a> | 
-            <a href="https://facebook.com" target="_blank">Facebook</a>
+            <a href="https://instagram.com" target="_blank" rel="noopener noreferrer">Instagram</a> | 
+            <a href="https://facebook.com" target="_blank" rel="noopener noreferrer">Facebook</a>
         </div>
     </footer>
 </body>
