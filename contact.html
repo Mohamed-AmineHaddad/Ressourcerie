@@ -18,10 +18,10 @@
         </nav>
     </header>
 
-    <main role="main">
+    <main>
         <section class="container">
             <h2>Contactez-nous</h2>
-            <form class="contact-form" action="mailto:votreadresse@email.com" method="post" enctype="text/plain">
+            <form class="contact-form" action="mailto:votreadresse@email.com" method="post" enctype="text/plain" id="contactForm">
                 <div class="form-field">
                     <label for="name">Votre nom</label>
                     <input type="text" id="name" name="name" required>
@@ -37,6 +37,10 @@
                 <button type="submit" class="submit-btn">Envoyer</button>
             </form>
 
+            <!-- Message de confirmation caché -->
+      <p id="thankYouMsg" style="display:none; margin-top:1.5rem; font-weight:600; color:#fff;">
+        ✅ Merci de nous avoir contacté, nous reviendrons vers vous rapidement.
+      </p>
             <hr>
 
             <h2>Notre showroom</h2>
@@ -53,7 +57,7 @@
                 <iframe 
                     title="Localisation du Showroom Veralia"
                     src="https://www.google.com/intl/fr-CA/maps/about/mymaps/" 
-                    width="100%" 
+                    width="1040" 
                     height="450" 
                     style="border:0;" 
                     allowfullscreen="" 
@@ -73,12 +77,25 @@
         </section>
     </main>
 
-    <footer class="footer" role="contentinfo">
+    <footer class="footer">
         <p>&copy; 2025 Nom de la Ressourcerie. Tous droits réservés.</p>
         <div class="social-links">
             <a href="https://instagram.com" target="_blank" rel="noopener noreferrer">Instagram</a> | 
             <a href="https://facebook.com" target="_blank" rel="noopener noreferrer">Facebook</a>
         </div>
     </footer>
+
+     <!-- ===== SCRIPT JS ===== -->
+  <script>
+    const form = document.getElementById("contactForm"); // Sélectionne le formulaire
+    const thankYouMsg = document.getElementById("thankYouMsg"); // Sélectionne le message de remerciement
+
+    form.addEventListener("submit", function(e) { // Écoute l'événement de soumission de formulaire
+      e.preventDefault(); // Empêche l'envoi "classique"
+      form.style.display = "none"; // Cache le formulaire
+      thankYouMsg.style.display = "block"; // Affiche le message
+    });
+  </script>
+
 </body>
 </html>
